@@ -34,7 +34,12 @@ app.get('/analyzation', function (req, res) {
       body: form,
       redirect: 'follow'
     };
-    
+    //score_tag
+    //agreement
+    //subjectivity
+    //confidence
+    //irony
+   
     const response = fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions)
       .then(response => {
         return response.json()
@@ -42,10 +47,12 @@ app.get('/analyzation', function (req, res) {
       .then(data => {
         res.json({
           text: data.sentence_list[0].text,
-          confidence: data.sentence_list[0].confidence,
-          agreement: data.sentence_list[0].agreement,
-          irony: data.irony
-        });
+          confidence: data.confidence,
+          agreement: data.agreement,
+          irony: data.irony,
+          scoreTag: data.score_tag,
+          subjectivity: data.subjectivity
+        })
       })
       .catch(error => console.log('Error is found', error));
 });
