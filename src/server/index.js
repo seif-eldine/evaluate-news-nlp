@@ -2,22 +2,23 @@ const dotenv = require('dotenv');
 dotenv.config({path:__dirname+'/../../.env'});
 var FormData = require('form-data');
 const fetch = require('node-fetch');
+const cors = require('cors');
 
-var path = require('path')
-const express = require('express')
+var path = require('path');
+const express = require('express');
+const app = express();
 
-const app = express()
-
-app.use(express.static('../../dist'))
+app.use(cors());
+app.use(express.static('../../dist'));
 
 app.get('/', function (req, res) {
     res.sendFile(path.resolve('../../dist/index.html'))
-})
+});
 
 // designates what port the app will listen to for incoming requests
 app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
-})
+});
 
 app.get('/analyzation', function (req, res) {
 
@@ -46,6 +47,5 @@ app.get('/analyzation', function (req, res) {
           irony: data.irony
         });
       })
-      .catch(error => console.log('error Roben Found', error));
-
-})
+      .catch(error => console.log('Error is found', error));
+});
