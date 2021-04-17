@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <div class=""><span>Logo</span></div>
+            <div class="">navigation</div>
+        </header>
+
+        <main>
+
+            <div class="intro">
+                <h1>Welcome to my <span class="highlighted-word">NLP</span> test</h1>
+                <h1>Kindly, make sure to insert only English letters</h1>
+                <h1>To see the magic</h1>
+            </div>
+
+            <section>
+
+                <form class="" id="form">
+                    <textarea id="name" name="input" placeholder="What is in your mind ?"></textarea>
+                    <span id="errorMsg" class="error-span">Form must not contain but English letters</span>
+                    <input type="submit" name="">
+                    <button type="button" class="reset-button" onclick="reset()">Reset</button>
+                </form>
+
+                <div class="results-card">
+                    <table class="table" style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td class="text-row">The text you typed: </td>
+                                <td id="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="confidence-row">Confidence: </td>
+                                <td id="confidence"></td>
+                            </tr>
+                            <tr>
+                                <td class="agreement-row">Agreement: </td>
+                                <td id="agreement"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+            <section>
+                <strong>Form Results:</strong>
+                <div id="results"></div>
+            </section>
+            
+        </main>
+
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script>
+           
+    </body>
+</html>

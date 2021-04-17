@@ -1,0 +1,103 @@
+form {
+    border-radius: 4px;
+    padding: 40px;
+    background-color: #d59a17;
+    display: inline-block;
+    width: 35%;
+    position: absolute;
+    left: 10%;
+    height: 220px;
+    -webkit-box-shadow: 22px 11px 24px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 22px 11px 24px -12px rgba(0,0,0,0.75);
+    box-shadow: 22px 11px 24px -12px rgba(0,0,0,0.75);
+    transition: all 0.3s ease-in-out;
+
+    &:hover{
+        -webkit-box-shadow: 11px 11px 24px -19px rgba(0,0,0,0.75);
+        -moz-box-shadow: 11px 11px 24px -19px rgba(0,0,0,0.75);
+        box-shadow: 11px 11px 24px -19px rgba(0,0,0,0.75);
+    }
+
+    textarea{
+        resize: none;
+        width: 100%;
+        height: 58px;
+        border-radius: 8px;
+        outline: none;
+        font-size: 18px;
+        &::placeholder{
+            font-weight: bold;
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+
+        }
+    }
+}
+
+.results-card{
+    text-align: center;
+    border-radius: 4px;
+    padding: 30px;
+    background-color: #d59a17;
+    width: 35%;
+    display: inline-block;
+    position: absolute;
+    right: 10%;
+    min-height: 220px;
+    font-family: 'Roboto', sans-serif;
+    -webkit-box-shadow: 22px 11px 24px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 22px 11px 24px -12px rgba(0,0,0,0.75);
+    box-shadow: 22px 11px 24px -12px rgba(0,0,0,0.75);
+    transition: all 0.3s ease-in-out;
+
+    &:hover{
+        -webkit-box-shadow: 11px 11px 24px -19px rgba(0,0,0,0.75);
+        -moz-box-shadow: 11px 11px 24px -19px rgba(0,0,0,0.75);
+        box-shadow: 11px 11px 24px -19px rgba(0,0,0,0.75);
+    }
+
+    .text-row, .confidence-row, .agreement-row, #text, #confidence, #agreement {
+        font-size: 18px;
+        border-bottom: 2px solid #a56f0c;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+}
+
+input {
+    padding: 5px 20px;
+    line-height: 16px;
+    margin: 10px 0;
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    font-family: 'Roboto', sans-serif; 
+}
+
+.reset-button{
+    
+    padding: 5px 20px;
+    margin: 10px 0;
+    width: 83px;
+    position: absolute;
+    bottom: 0;
+    right: 20%;
+
+
+}
+
+// Handling error Span
+
+.error-span{
+    font-size: 15px;
+    display: block;
+    width: 62%;
+    margin: auto;
+    display: none;
+    color: black;
+}
+
+.form-span {
+    font-size: 18px;
+    color: black;
+}
