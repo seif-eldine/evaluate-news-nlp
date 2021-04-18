@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-dotenv.config({path:__dirname+'/../../.env'});
+dotenv.config({ path:__dirname + '/../../.env' });
 var FormData = require('form-data');
 const fetch = require('node-fetch');
 const cors = require('cors');
@@ -9,10 +9,12 @@ const express = require('express');
 const app = express();
 
 app.use(cors());
-app.use(express.static('../../dist'));
+//app.use(express.static(__dirname + '/../../dist'));
+app.use(express.static( path.resolve('dist') ))
 
 app.get('/', function (req, res) {
-    res.sendFile(path.resolve('../../dist/index.html'))
+    //res.sendFile(__dirname + '/../../dist/index.html')
+    res.sendFile('index.html')
 });
 
 // designates what port the app will listen to for incoming requests
@@ -40,7 +42,7 @@ app.get('/analyzation', function (req, res) {
     //confidence
     //irony
    
-    const response = fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions)
+    fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions)
       .then(response => {
         return response.json()
       })
@@ -54,5 +56,8 @@ app.get('/analyzation', function (req, res) {
           subjectivity: data.subjectivity
         })
       })
-      .catch(error => console.log('Error is found', error));
+      .catch(error => { 
+        console.log('Error is found', error);
+        res.sendStatus(500)
+      });
 });
