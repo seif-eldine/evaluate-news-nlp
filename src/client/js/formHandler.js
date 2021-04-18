@@ -10,6 +10,9 @@ function handleSubmit(event) {
     let receivedText = document.getElementById('text');
     let receivedConfidence = document.getElementById('confidence');
     let receivedAgreement = document.getElementById('agreement');
+    let receivedsubjectivity = document.getElementById('subjectivity');
+    let receivedirony = document.getElementById('irony');
+    let receivedscore = document.getElementById('score');
     let resultsHolder = document.getElementById('card-details-placeholder');
     
     // If the boolean returned from (CheckForText) is true , Execute the Function below
@@ -19,9 +22,12 @@ function handleSubmit(event) {
         fetch(`http://localhost:8081/analyzation?txt=${formText}&lang=en`)
         .then(res => res.json())
         .then(res => {
-            receivedText.innerHTML = res.text
-            receivedConfidence.innerHTML = res.confidence
-            receivedAgreement.innerHTML = res.agreement
+            receivedText.innerHTML = res.text.toLowerCase()
+            receivedConfidence.innerHTML = res.confidence.toLowerCase()
+            receivedAgreement.innerHTML = res.agreement.toLowerCase()
+            receivedirony.innerHTML = res.irony.toLowerCase()
+            receivedscore.innerHTML = res.scoreTag.toLowerCase()
+            receivedsubjectivity.innerHTML = res.subjectivity.toLowerCase()
             resultsHolder.innerHTML = ''
             // document.getElementById('results').innerHTML = res.message
         })

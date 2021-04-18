@@ -56,11 +56,14 @@ form {
         box-shadow: 11px 11px 24px -19px rgba(0,0,0,0.75);
     }
 
-    .text-row, .confidence-row, .agreement-row, #text, #confidence, #agreement {
+    .text-row, .confidence-row, .agreement-row, .text-row, .confidence-row, .subjectivity-row, .irony-row, .score-tag-row {
         font-size: 18px;
         border-bottom: 2px solid #a56f0c;
         padding-bottom: 10px;
         padding-top: 10px;
+    }
+    .score-tag-row{
+        border-bottom: none;
     }
 }
 
